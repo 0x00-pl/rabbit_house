@@ -44,10 +44,10 @@ function visit_route(f_path_route, route, prefix){
     });
 }
 
-function printRouteToString(route, prefix='/'){
+function printRouteToString(route, prefix='/', route_to_string=x=>''+x.component){
     let data = [];
     function collect_route(path, route){
-        data = data.concat([[path, ''+route.component]]);
+        data = data.concat([[path, route_to_string(route)]]);
     }
     visit_route(collect_route, route, prefix);
     data.sort(function(a,b){
